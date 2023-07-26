@@ -1,0 +1,247 @@
+/* Google Font Nunito */
+/* @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #fff;
+  font-family: "Nunito", sans-serif;
+} */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  :root {
+    --clr-primary: #10b981;
+    --clr-primary-light: #d1fae5;
+    --clr-primary-hover: #059669;
+
+    --clr-secondary: #f3f4f6;
+    --clr-gray: #6b7280;
+    --clr-red: #ef4444;
+    --clr-red-light: #fee2e2;
+
+    --ff-primary: Inter, sans-serif;
+    --ff-secondary: Open Sans, sans-serif;
+
+    --fs-700: 1.875rem;
+    --fs-600: 1.5rem;
+    --fs-550: 1.125rem;
+    --fs-500: 1.25rem;
+    --fs-400: 1rem;
+    --fs-300: 0.875rem;
+    --fs-200: 0.75rem;
+
+    --fw-400: 400;
+    --fw-500: 500;
+    --fw-700: 700;
+    --fw-600: 600;
+  }
+  html {
+    font-family: var(--ff-primary), sans-serif;
+  }
+  body {
+    @apply bg-gray-100;
+  }
+
+  h1 {
+    @apply text-3xl;
+  }
+  h2 {
+    @apply text-2xl;
+  }
+  h3 {
+    @apply text-xl;
+  }
+  table {
+    @apply border-collapse shadow-md min-w-[60%] rounded-md;
+  }
+  thead {
+    @apply shadow-md h-12 px-2;
+  }
+  th {
+    @apply uppercase px-2 lg:px-3 lg:py-2 text-sm font-bold text-left;
+  }
+  td {
+    @apply lg:px-3 lg:py-2 px-2 py-1;
+  }
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+}
+
+@layer utilities {
+  /* utility classes  */
+  .text-primary {
+    color: var(--clr-primary);
+  }
+
+  .text-primary-light {
+    color: var(--clr-primary-light);
+  }
+  .text-primary-hover {
+    color: var(--clr-primary-hover);
+  }
+
+  .bg-primary {
+    background: var(--clr-primary);
+  }
+  .bg-primary-hover {
+    background: var(--clr-primary-hover);
+  }
+
+  .bg-primary-light {
+    background: var(--clr-primary-light);
+  }
+
+  .bg-secondary {
+    background-color: var(--clr-secondary);
+  }
+  .border-primary {
+    border-bottom: 2px solid var(--clr-primary);
+  }
+
+  .text-gray-primary {
+    color: var(--clr-gray);
+  }
+  .text-red {
+    color: var(--clr-red);
+  }
+  .text-red-light {
+    color: var(--clr-red-light);
+  }
+
+  .font-primary {
+    font-family: var(--ff-primary), sans-serif;
+  }
+  .font-secondary {
+    font-family: var(--ff-secondary), sans-serif;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .custom-container {
+    @apply container px-4;
+  }
+}
+
+@layer components {
+  /* .tableActionsIcon {
+  font-size: 1.5rem;
+ } */
+ .order-title {
+  @apply font-bold uppercase tracking-wider text-black opacity-70 
+ }
+ .order-subtitle {
+  @apply text-black opacity-60 font-semibold
+ }
+}
+
+
+
+
+
+
+/* Products page carosol CSS start--------------------------------------------------- */
+
+.carousel-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.carousel-wrapper {
+  display: flex;
+  width: 100%;
+  position: relative;
+}
+
+.carousel-content-wrapper {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-content {
+  display: flex;
+  transition: all 250ms linear;
+  -ms-overflow-style: none;  /* hide scrollbar in IE and Edge */
+  scrollbar-width: none;  /* hide scrollbar in Firefox */
+}
+
+/* hide scrollbar in webkit browser */
+.carousel-content::-webkit-scrollbar, .carousel-content::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-content > * {
+  width: 100%;
+  flex-shrink: 0;
+  flex-grow: 1;
+}
+
+.carousel-content.show-2 > * {
+  width: 50%;
+}
+
+.carousel-content.show-3 > * {
+  width: calc(100% / 3);
+}
+
+.carousel-content.show-4 > * {
+  width: calc(100% / 4);
+}
+
+.carousel-content.show-8 > * {
+  width: calc(100% / 8);
+}
+
+.left-arrow, .right-arrow {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  border-radius: 5px;
+  background-color:  var(--clr-primary);
+  color: white;
+  border: 1px solid #ddd;
+}
+
+.left-arrow {
+  left: 24px;
+}
+
+.right-arrow {
+  right: 24px;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .left-arrow, .right-arrow {
+      display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .carousel-content.show-8 > * {
+    width: calc(100% / 4);
+  }
+}
+
+/* Products page carosol CSS end -------------------------------------------------------------*/
